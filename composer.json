@@ -1,0 +1,52 @@
+{
+  "name": "scribitpro/wordpress-plugin",
+  "description": "Online video from your WordPress site accessible to all.",
+  "type": "wordpress-plugin",
+  "keywords": ["wordpress", "plugin", "scribit", "video", "accessibility"],
+  "license": ["GPL-3.0-only"],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "scribit pro",
+      "homepage": "https://scribit.pro"
+    }
+  ],
+  "repositories": [
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "10up/phpcs-composer": "dev-master",
+    "wp-coding-standards/wpcs": "dev-develop as 2.3.0",
+    "phpunit/phpunit": "^9.5",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "yoast/phpunit-polyfills": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Scribit\\WordPress\\": "src"
+    }
+  },
+  "scripts": {
+    "lint": "phpcs plugin.php src --runtime-set testVersion 8.0-",
+    "lint-fix": "phpcbf plugin.php src",
+    "test": "phpunit"
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$name}/": ["type:wordpress-plugin", "type:wordpress-theme"]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
