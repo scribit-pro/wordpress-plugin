@@ -15,9 +15,14 @@
  * @package scribit
  */
 
-namespace Scribit\WordPress;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+DEFINE( 'SCRIBIT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+const SCRIBIT_TEMPLATE_PATH = SCRIBIT_PLUGIN_PATH . 'assets' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+add_action( 'admin_menu', static fn() => Scribit\WordPress\Hooks\AdminMenu::register() );
+add_action( 'admin_init', static fn() => Scribit\WordPress\Hooks\AdminInit::register() );
