@@ -15,7 +15,7 @@ class ScribitID {
 	 *
 	 * @var string
 	 */
-	public readonly string $key;
+	public string $key;
 
 	public function __construct() {
 		$this->key = 'scribit_id';
