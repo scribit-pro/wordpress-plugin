@@ -37,7 +37,7 @@
     "lint": "phpcs plugin.php src --runtime-set testVersion 8.0-",
     "lint-fix": "phpcbf plugin.php src",
     "setup-tests": "./tests/install-wp-tests.sh wordpress_test root toor 127.0.0.1 latest",
-    "test": "phpunit"
+    "tests": "phpunit"
   },
   "extra": {
     "installer-paths": {
