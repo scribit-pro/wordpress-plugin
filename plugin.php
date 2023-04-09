@@ -26,3 +26,4 @@ require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 add_action( 'admin_init', static fn() => Scribit\WordPress\Hooks\AdminInit::register_plugin_settings() );
 add_action( 'admin_menu', static fn() => Scribit\WordPress\Hooks\AdminMenu::register_options_page() );
+add_filter( 'oembed_dataparse', static fn( string $html, $data) => Scribit\WordPress\Hooks\OembedDataparse::enable_jsapi_on_youtube( $html, $data ), 15, 2 );
