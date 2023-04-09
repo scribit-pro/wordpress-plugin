@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace Scribit\WordPress\Settings;
 
@@ -28,8 +28,9 @@ class ScribitID {
 	public function label(): ?string {
 		return __( 'your Scribit.Pro ID' );
 	}
+
 	public function value(): ?string {
-		return get_option( $this->key );
+		return get_option( $this->key, null );
 	}
 
 	/**
@@ -42,6 +43,7 @@ class ScribitID {
 		$input = $this->sanitize( $input );
 		if ( ! wp_is_uuid( $input, 4 ) ) {
 			add_settings_error( $this->key, 'invalidUUID', 'Given ID is not a valid Scribit ID' );
+
 			return $this->value();
 		}
 
