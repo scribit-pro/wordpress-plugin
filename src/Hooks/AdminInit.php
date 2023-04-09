@@ -14,10 +14,9 @@ use Scribit\WordPress\Settings\ScribitID;
  */
 class AdminInit {
 
-
 	public const OPTIONS_GROUP_NAME = 'scribit';
 
-	public static function register(): void {
+	public static function register_plugin_settings(): void {
 		$id = new ScribitID();
 		register_setting(
 			self::OPTIONS_GROUP_NAME,

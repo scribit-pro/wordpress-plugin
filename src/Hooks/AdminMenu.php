@@ -13,7 +13,7 @@ namespace Scribit\WordPress\Hooks;
 class AdminMenu {
 
 
-	public static function register(): void {
+	public static function register_options_page(): void {
 		add_submenu_page(
 			'options-general.php',
 			'Scribit.Pro options',
