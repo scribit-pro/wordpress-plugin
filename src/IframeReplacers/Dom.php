@@ -40,7 +40,7 @@ class Dom implements Replacer {
 		return empty( $value ) ? null : $value;
 	}
 
-	public function set_src( string $src ): string {
+	public function replace_src( string $src ): string {
 		$iframe = $this->find_iframe();
 		if ( $iframe instanceof DOMElement ) {
 			$iframe->setAttribute( 'src', $src );

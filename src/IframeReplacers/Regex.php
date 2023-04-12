@@ -33,7 +33,7 @@ class Regex implements Replacer {
 		return $matches[1];
 	}
 
-	public function set_src( string $src ): string {
+	public function replace_src( string $src ): string {
 		return str_replace( $this->get_src(), $src, $this->html );
 	}
 }

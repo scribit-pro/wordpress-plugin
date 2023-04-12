@@ -16,7 +16,11 @@ use Scribit\WordPress\IframeReplacers\Regex;
 class OembedDataparse {
 
 	/**
-	 * Strips any new lines from the HTML.
+	 * For our widget to work with YouTube, we'll have to embed YouTube videos with the `enablejsapi` query string so our widget
+	 * can read the playback state and ensure the audio descriptions track is synced when watching the video.
+	 *
+	 * Standard YouTube Oembed responses do not have the enablejsapi enabled and there is no known flag
+	 * available to enable this. So our most non-invasive option is to mutate the oembed html response.
 	 *
 	 * @param string $html Existing HTML.
 	 * @param object $data Data object from WP_oEmbed::data2html()
@@ -41,10 +45,10 @@ class OembedDataparse {
 		}
 
 		if ( wp_parse_url( $src, PHP_URL_QUERY ) ) {
-			return $adapter->set_src( $src . '&enablejsapi=1&playsinline=1&disablekb=1' );
+			return $adapter->replace_src( $src . '&enablejsapi=1&playsinline=1&disablekb=1' );
 		}
 
-		return $adapter->set_src( $src . '?enablejsapi=1&playsinline=1&disablekb=1' );
+		return $adapter->replace_src( $src . '?enablejsapi=1&playsinline=1&disablekb=1' );
 	}
 }
 

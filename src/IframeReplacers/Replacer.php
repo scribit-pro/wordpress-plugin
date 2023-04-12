@@ -10,7 +10,7 @@ interface Replacer {
 
 	public function get_src(): ?string;
 
-	public function set_src( string $src ): string;
+	public function replace_src( string $src ): string;
 }
 
 
