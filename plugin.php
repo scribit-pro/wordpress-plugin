@@ -21,9 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 DEFINE( 'SCRIBIT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 const SCRIBIT_TEMPLATE_PATH = SCRIBIT_PLUGIN_PATH . 'assets' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
+const PLUGIN_VERSION        = 0.1; // used for asset version caching
 
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 add_action( 'admin_init', static fn() => Scribit\WordPress\Hooks\AdminInit::register_plugin_settings() );
 add_action( 'admin_menu', static fn() => Scribit\WordPress\Hooks\AdminMenu::register_options_page() );
-add_filter( 'oembed_dataparse', static fn( string $html, $data) => Scribit\WordPress\Hooks\OembedDataparse::enable_jsapi_on_youtube( $html, $data ), 15, 2 );
+add_action( 'wp_enqueue_scripts', static fn() => Scribit\WordPress\Hooks\EnqueueScripts::load_widget_js() );
+add_filter( 'oembed_dataparse', static fn( string $html, $data ) => Scribit\WordPress\Hooks\OembedDataparse::enable_jsapi_on_youtube( $html, $data ), 15, 2 );
