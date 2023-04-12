@@ -28,7 +28,7 @@ class AdminInit {
 				array(
 					'sanitize_callback' => array(
 						$field,
-						'validate_and_save',
+						'validation_callback',
 					),
 				)
 			);

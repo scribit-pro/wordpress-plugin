@@ -22,11 +22,12 @@ interface Setting {
 
 	/**
 	 *
-	 * The callback function you can call when you want to change the value
+	 * The callback function that WordPress calls when deciding what to save in the
+	 * DB.
 	 *
 	 * @param mixed $value
 	 */
-	public function validate_and_save( mixed $value ): mixed;
+	public function validation_callback( mixed $value ): mixed;
 
 }
 

@@ -19,7 +19,7 @@ class ScribitID implements Setting {
 		return get_option( $this->key(), null );
 	}
 
-	public function validate_and_save( mixed $value ): mixed {
+	public function validation_callback( mixed $value ): mixed {
 		$value = $this->sanitize( $value );
 		if ( ! wp_is_uuid( $value, 4 ) ) {
 			add_settings_error( $this->key(), 'invalidUUID', 'Given ID is not a valid Scribit ID' );
