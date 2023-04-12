@@ -40,7 +40,7 @@ class TestScribitID extends \WP_UnitTestCase {
 			[ 1 ],
 			[ "one" ],
 			[ "" ],
-			[ "9914fccc-d929-11ed-afa1-0242ac120002" ],
+			[ "9914fccc-d929-11ed-afa1-0242ac120002" ], // this is an uuid v1
 			[ [] ],
 			[ (object) array( 'foo' => 'bar' ) ]
 		];

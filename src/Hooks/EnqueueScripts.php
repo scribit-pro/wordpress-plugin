@@ -14,7 +14,8 @@ use Scribit\WordPress\Settings\ScribitID;
  */
 class EnqueueScripts {
 
-	const WIDGET_CODE = <<<EOD
+	public const WIDGET_SCRIPT_HANDLE = 'scribit-widget';
+	private const WIDGET_CODE         = <<<EOD
     (function(s, w, i, d, g, e, t) {
         s['initScribitWidget'] = function(){s['scribitWidget']=new s.scribit.widget(g, {'wrapper': 'div'})};
         e = w.createElement(i); e.type='text/javascript'; e.src=d; e.defer=true;
@@ -23,15 +24,17 @@ class EnqueueScripts {
 EOD;
 
 	public static function load_widget_js(): void {
+		wp_register_script( self::WIDGET_SCRIPT_HANDLE, '', null, PLUGIN_VERSION, true );
+
+		// We only enqueue the script when the plugin is configured
 		$id = ( new ScribitID() )->value();
-		// no need to load any JS when your scribit ID is not configured
 		if ( empty( $id ) ) {
 			return;
 		}
 
-		wp_register_script( 'scribit-widget', '', null, PLUGIN_VERSION, true );
-		wp_enqueue_script( 'scribit-widget' );
-		wp_add_inline_script( 'scribit-widget', str_replace( 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', $id, self::WIDGET_CODE ) );
+		$code = str_replace( 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', $id, self::WIDGET_CODE );
+		wp_add_inline_script( self::WIDGET_SCRIPT_HANDLE, $code );
+		wp_enqueue_script( self::WIDGET_SCRIPT_HANDLE );
 	}
 }
 
