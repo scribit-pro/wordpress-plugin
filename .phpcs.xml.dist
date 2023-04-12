@@ -3,5 +3,7 @@
 	<rule ref="10up-Default">
 	    <exclude name="Squiz.Commenting.FileComment.Missing"/>
 	    <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+	    <exclude name="Generic.Commenting.DocComment.MissingShort"/> <!-- Temporarily disabled until https://github.com/WordPress/WordPress-Coding-Standards/issues/403 is fixed. -->
+	    <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/> <!-- Temporarily disabled until https://github.com/WordPress/WordPress-Coding-Standards/issues/403 is fixed. -->
 	</rule>
 </ruleset>
