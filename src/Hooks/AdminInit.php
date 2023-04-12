@@ -5,6 +5,7 @@ declare( strict_types=1 );
 namespace Scribit\WordPress\Hooks;
 
 use Scribit\WordPress\Settings\ScribitID;
+use Scribit\WordPress\Settings\WidgetWrapper;
 use Scribit\WordPress\Settings\Setting;
 
 /**
@@ -19,7 +20,7 @@ class AdminInit {
 
 	public static function register_plugin_settings(): void {
 		/** @var array<Setting> $fields all settings */
-		$fields = array( new ScribitID() );
+		$fields = array( new ScribitID(), new WidgetWrapper() );
 
 		foreach ( $fields as $field ) {
 			register_setting(
