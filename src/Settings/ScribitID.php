@@ -21,7 +21,7 @@ class ScribitID {
 		$this->key = 'scribit_id';
 	}
 
-	public function sanitize( string $input ): string {
+	public function sanitize( ?string $input ): string {
 		return sanitize_text_field( $input );
 	}
 
@@ -37,9 +37,9 @@ class ScribitID {
 	 * WordPress calls this function to resolve what it should "update" in the db.
 	 * So note that we'll return the current get_option whenever validation fails.
 	 *
-	 * @param string $input the given value the user or machine is trying to save
+	 * @param ?string $input the given value the user or machine is trying to save
 	 */
-	public function validate( string $input ): ?string {
+	public function validate( ?string $input ): ?string {
 		$input = $this->sanitize( $input );
 		if ( ! wp_is_uuid( $input, 4 ) ) {
 			add_settings_error( $this->key, 'invalidUUID', 'Given ID is not a valid Scribit ID' );
