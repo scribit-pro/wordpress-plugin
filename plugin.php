@@ -11,6 +11,7 @@
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       scribit
+ * Domain Path:       /languages
  *
  * @package scribit
  */
@@ -18,13 +19,12 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+const PLUGIN_VERSION = 0.1; // used for asset version caching
 
 DEFINE( 'SCRIBIT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-const SCRIBIT_TEMPLATE_PATH = SCRIBIT_PLUGIN_PATH . 'assets' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
-const PLUGIN_VERSION        = 0.1; // used for asset version caching
+require_once SCRIBIT_PLUGIN_PATH . 'vendor/autoload.php';
 
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-
+load_plugin_textdomain( 'scribit', false, SCRIBIT_PLUGIN_PATH . 'languages' );
 add_action( 'admin_init', static fn() => Scribit\WordPress\Hooks\AdminInit::register_plugin_settings() );
 add_action( 'admin_menu', static fn() => Scribit\WordPress\Hooks\AdminMenu::register_options_page() );
 add_action( 'wp_enqueue_scripts', static fn() => Scribit\WordPress\Hooks\EnqueueScripts::load_widget_js() );

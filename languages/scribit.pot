@@ -1,0 +1,72 @@
+# Copyright (C) 2023 scribit.pro
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Scribit.pro 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/scribit-pro\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-04-14T10:25:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.0-alpha-25565fb\n"
+"X-Domain: scribit\n"
+
+#. Plugin Name of the plugin
+msgid "Scribit.pro"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/scribit-pro/wordpress-plugin"
+msgstr ""
+
+#. Description of the plugin
+msgid "Online video from your WordPress site accessible to all."
+msgstr ""
+
+#. Author of the plugin
+msgid "scribit.pro"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://scribit.pro"
+msgstr ""
+
+#. translators: Page title of the plugin settings
+#: assets/templates/options.php:14
+msgid "Scribit.Pro options"
+msgstr ""
+
+#. translators: The form label for the scribit id
+#: assets/templates/options.php:28
+msgid "Scribit.Pro ID"
+msgstr ""
+
+#: assets/templates/options.php:37
+msgid "You can find your Scribit.Pro ID on <a href=\"https://scribit.pro/en-gb/integrations/\" target=\"_blank\">our website</a>"
+msgstr ""
+
+#. translators: Sub title for the advanced plugin settings
+#: assets/templates/options.php:47
+msgid "Advanced options"
+msgstr ""
+
+#. translators: accompanying text that explains whether you should change these advanced settings
+#: assets/templates/options.php:53
+msgid "The default values of the advanced settings are usually good enough for 99% of the websites. We left them in here just in case :)"
+msgstr ""
+
+#. translators: The form label for the widget placement
+#: assets/templates/options.php:69
+msgid "Widget bar location"
+msgstr ""
+
+#: assets/templates/options.php:76
+msgid "After the embedded element"
+msgstr ""
+
+#: assets/templates/options.php:79
+msgid "After the parent of the embedded element"
+msgstr ""

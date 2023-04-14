@@ -20,7 +20,7 @@ class AdminMenu {
 			'Scribit.Pro',
 			'manage_options', // https://wordpress.org/documentation/article/roles-and-capabilities/#manage_options
 			'scribit-pro',
-			static fn() => load_template( SCRIBIT_TEMPLATE_PATH . 'options.phtml' )
+			static fn() => load_template( SCRIBIT_PLUGIN_PATH . 'assets' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'options.php' )
 		);
 	}
 }
