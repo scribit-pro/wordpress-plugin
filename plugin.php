@@ -19,7 +19,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-const PLUGIN_VERSION = 0.1; // used for asset version caching
+const SCRIBIT_PLUGIN_VERSION = 0.1; // used for asset version caching
 
 DEFINE( 'SCRIBIT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 require_once SCRIBIT_PLUGIN_PATH . 'vendor/autoload.php';

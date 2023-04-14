@@ -25,7 +25,7 @@ class EnqueueScripts {
 EOD;
 
 	public static function load_widget_js(): void {
-		wp_register_script( self::WIDGET_SCRIPT_HANDLE, '', null, PLUGIN_VERSION, true );
+		wp_register_script( self::WIDGET_SCRIPT_HANDLE, '', null, SCRIBIT_PLUGIN_VERSION, true );
 
 		// We only enqueue the script when the plugin is configured
 		$id = ( new ScribitID() )->value();
