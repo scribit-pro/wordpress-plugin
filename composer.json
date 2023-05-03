@@ -26,7 +26,8 @@
     "phpunit/phpunit": "^9.5",
     "phpcompatibility/phpcompatibility-wp": "*",
     "wp-phpunit/wp-phpunit": "^6.2",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+    "yoast/phpunit-polyfills": "^1.0"
   },
   "autoload": {
     "psr-4": {
