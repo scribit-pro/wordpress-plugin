@@ -1,5 +1,10 @@
 name: Test against latest WP
 
+env:
+  MYSQL_DATABASE: wordpress_test
+  DB_USER: root
+  DB_PASSWORD: toor
+
 on:
   push:
     branches:
@@ -10,7 +15,7 @@ on:
 
 jobs:
   test-80:
-    name: Test on PHP 8.0
+    name: PHP 8.0
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +38,7 @@ jobs:
         run: composer run tests
 
   test-82:
-    name: Test on PHP 8.2
+    name: PHP 8.2
     runs-on: ubuntu-latest
 
     steps:
