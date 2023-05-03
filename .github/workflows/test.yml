@@ -1,0 +1,56 @@
+name: Test against latest WP
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-80:
+    name: Test on PHP 8.0
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup environment
+        uses: ./.github/workflows/setup
+        with:
+          php-version: '8.0'
+
+      - name: Start MySQL
+        run: sudo systemctl start mysql.service
+
+      - name: Setup WP Tests
+        run: composer run setup-tests
+        shell: bash
+
+      - name: PHPUnit
+        run: composer run tests
+
+  test-82:
+    name: Test on PHP 8.2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup environment
+        uses: ./.github/workflows/setup
+        with:
+          php-version: '8.2'
+
+      - name: Start MySQL
+        run: sudo systemctl start mysql.service
+
+      - name: Setup WP Tests
+        run: composer run setup-tests
+        shell: bash
+
+      - name: PHPUnit
+        run: composer run tests

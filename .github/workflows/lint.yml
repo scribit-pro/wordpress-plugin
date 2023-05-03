@@ -1,0 +1,26 @@
+name: Code style linting
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  phpunit_single_site:
+    name: Code style linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup environment
+        uses: ./.github/workflows/setup
+        with:
+          php-version: '8.2'
+
+      - name: PHPCS
+        run: composer run lint
