@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  phpunit_single_site:
-    name: phpcs
+  phpcs:
+    name: PHPCS
     runs-on: ubuntu-latest
 
     steps:

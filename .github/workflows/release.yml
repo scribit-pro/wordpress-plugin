@@ -1,0 +1,31 @@
+name: Publishing plugin
+on:
+  release:
+    types: [published]
+
+jobs:
+  zip:
+    name: Create archive
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup environment
+        uses: ./.github/workflows/setup
+        with:
+          php-version: '8.0'
+
+      - name: Create archive
+        shell: bash
+        run: composer run build
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: scribit-pro.zip
+          asset_name: scribit-pro.zip
+          asset_content_type: application/zip

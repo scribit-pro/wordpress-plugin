@@ -8,6 +8,7 @@ runs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ inputs.php-version }}
+        tools: wp-cli
         extensions: dom
 
     - name: Set cache directories
