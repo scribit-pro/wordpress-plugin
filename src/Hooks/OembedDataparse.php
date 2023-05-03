@@ -15,6 +15,7 @@ use Scribit\WordPress\IframeReplacers\Regex;
  */
 class OembedDataparse {
 
+
 	/**
 	 * For our widget to work with YouTube, we'll have to embed YouTube videos with the `enablejsapi` query string so our widget
 	 * can read the playback state and ensure the audio descriptions track is synced when watching the video.
@@ -23,7 +24,7 @@ class OembedDataparse {
 	 * available to enable this. So our most non-invasive option is to mutate the oembed html response.
 	 *
 	 * @param string $html Existing HTML.
-	 * @param object $data Data object from WP_oEmbed::data2html()
+	 * @param object $data Data object from WP_oEmbed::data2html().
 	 *
 	 * @return string Possibly modified $html
 	 */
@@ -40,7 +41,7 @@ class OembedDataparse {
 		}
 
 		$src = $adapter->get_src();
-		if ( empty( $src ) ) { // if the strategy fails to find the src, we'll return the original html
+		if ( empty( $src ) ) { // if the strategy fails to find the src, we'll return the original html.
 			return $html;
 		}
 

@@ -14,12 +14,13 @@ namespace Scribit\WordPress\Settings;
  * adding an argument to our widget code, instructing it to inject itself one parent above the embedded content.
  */
 class WidgetWrapper implements Setting {
+
 	private const KEY = 'scrbit_widget_wrapper';
 
 	public function options(): array {
 		return array(
-			null, // no wrapper target
-			'div', // insert after first parent `div` element
+			null, // no wrapper target.
+			'div', // insert after first parent `div` element.
 		);
 	}
 

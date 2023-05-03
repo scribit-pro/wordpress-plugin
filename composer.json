@@ -22,12 +22,11 @@
     "php": ">=8.0"
   },
   "require-dev": {
-    "10up/phpcs-composer": "dev-master",
-    "wp-coding-standards/wpcs": "dev-develop as 2.3.0",
+    "wp-coding-standards/wpcs": "dev-develop",
     "phpunit/phpunit": "^9.5",
     "phpcompatibility/phpcompatibility-wp": "*",
-    "yoast/phpunit-polyfills": "^1.0",
-    "wp-phpunit/wp-phpunit": "^6.2"
+    "wp-phpunit/wp-phpunit": "^6.2",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7"
   },
   "autoload": {
     "psr-4": {

@@ -8,12 +8,13 @@ use Scribit\WordPress\Settings\ScribitID;
 use Scribit\WordPress\Settings\WidgetWrapper;
 
 /**
- * wp_enqueue_scripts is the proper hook to use when enqueuing scripts and styles that are meant to appear on the front end.
+ * The `wp_enqueue_scripts` is the proper hook to use when enqueuing scripts and styles that are meant to appear on the front end.
  * Despite the name, it is used for enqueuing both scripts and styles.
  *
  * @see https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  */
 class EnqueueScripts {
+
 
 	public const WIDGET_SCRIPT_HANDLE = 'scribit-widget';
 	private const WIDGET_CODE         = <<<EOD
@@ -27,7 +28,7 @@ EOD;
 	public static function load_widget_js(): void {
 		wp_register_script( self::WIDGET_SCRIPT_HANDLE, '', null, SCRIBIT_PLUGIN_VERSION, true );
 
-		// We only enqueue the script when the plugin is configured
+		// We only enqueue the script when the plugin is configured.
 		$id = ( new ScribitID() )->value();
 		if ( empty( $id ) ) {
 			return;

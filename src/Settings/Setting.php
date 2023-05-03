@@ -6,6 +6,7 @@ namespace Scribit\WordPress\Settings;
 
 interface Setting {
 
+
 	/**
 	 * The element and wp_options key this setting is controlling
 	 *
@@ -21,7 +22,6 @@ interface Setting {
 	public function value(): mixed;
 
 	/**
-	 *
 	 * The callback function that WordPress calls when deciding what to save in the
 	 * DB.
 	 *

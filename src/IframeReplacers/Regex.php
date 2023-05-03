@@ -9,6 +9,7 @@ namespace Scribit\WordPress\IframeReplacers;
  */
 class Regex implements Replacer {
 
+
 	const REGEX = '/<iframe[^>].*?src=[\'"](.*?)[\'"].*?>.*?<\/iframe>/is';
 	/**
 	 * The input HTML string

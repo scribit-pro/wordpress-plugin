@@ -12,6 +12,7 @@ namespace Scribit\WordPress\Hooks;
  */
 class PluginActionLinks {
 
+
 	public static function add_settings_link( array $plugin_actions ): array {
 		/* translators: link to the plugin settings page when you are browsing the installed WordPress plugins   */
 		$text                       = __( '<a href="%s">Settings</a>', 'scribit' );

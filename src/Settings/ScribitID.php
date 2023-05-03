@@ -9,6 +9,7 @@ namespace Scribit\WordPress\Settings;
  * Your Scribit ID is a unique identifier we use to communicate with Scribit.Pro
  */
 class ScribitID implements Setting {
+
 	private const KEY = 'scribit_id';
 
 	public function key(): string {

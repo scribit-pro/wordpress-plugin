@@ -13,6 +13,7 @@ use DOMNode;
  */
 class Dom implements Replacer {
 
+
 	/**
 	 * The input HTML parsed as a DOMDocument
 	 *

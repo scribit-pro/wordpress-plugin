@@ -13,12 +13,13 @@ namespace Scribit\WordPress\Hooks;
 class AdminMenu {
 
 
+
 	public static function register_options_page(): void {
 		add_submenu_page(
 			'options-general.php',
 			'Scribit.Pro options',
 			'Scribit.Pro',
-			'manage_options', // https://wordpress.org/documentation/article/roles-and-capabilities/#manage_options
+			'manage_options', // see https://wordpress.org/documentation/article/roles-and-capabilities/#manage_options .
 			'scribit-pro',
 			static fn() => load_template( SCRIBIT_PLUGIN_PATH . 'assets' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'options.php' )
 		);

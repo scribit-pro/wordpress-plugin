@@ -1,9 +1,42 @@
 <?xml version="1.0"?>
-<ruleset name="Project Rules">
-	<rule ref="10up-Default">
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Example Project" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
+	<description>A custom set of rules to check for a WPized WordPress project</description>
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<arg name="basepath" value="."/>
+	<arg name="parallel" value="8"/>
+
+	<rule ref="WordPress-Extra">
+	    <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+	    <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+	</rule>
+
+	<rule ref="WordPress-Docs">
 	    <exclude name="Squiz.Commenting.FileComment.Missing"/>
-	    <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
-	    <exclude name="Generic.Commenting.DocComment.MissingShort"/> <!-- Temporarily disabled until https://github.com/WordPress/WordPress-Coding-Standards/issues/403 is fixed. -->
-	    <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/> <!-- Temporarily disabled until https://github.com/WordPress/WordPress-Coding-Standards/issues/403 is fixed. -->
+        <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/> <!-- Temporarily disabled until https://github.com/WordPress/WordPress-Coding-Standards/issues/403 is fixed. -->
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/> <!-- Temporarily disabled until https://github.com/WordPress/WordPress-Coding-Standards/issues/403 is fixed. -->
+	</rule>
+
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+	<rule ref="Generic.Commenting.Todo"/>
+
+	<rule ref="PHPCompatibilityWP"/>
+	<config name="minimum_supported_wp_version" value="5.9"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="scribit"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="SCRIBIT_"/>
+			</property>
+		</properties>
 	</rule>
 </ruleset>

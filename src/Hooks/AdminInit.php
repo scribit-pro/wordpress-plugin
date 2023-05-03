@@ -16,10 +16,13 @@ use Scribit\WordPress\Settings\Setting;
  */
 class AdminInit {
 
+
 	public const OPTIONS_GROUP_NAME = 'scribit';
 
 	public static function register_plugin_settings(): void {
-		/** @var array<Setting> $fields all settings */
+		/**
+	* @var array<Setting> $fields all settings
+*/
 		$fields = array( new ScribitID(), new WidgetWrapper() );
 
 		foreach ( $fields as $field ) {
