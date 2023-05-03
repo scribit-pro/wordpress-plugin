@@ -1,10 +1,5 @@
 name: Test against latest WP
 
-env:
-  MYSQL_DATABASE: wordpress_test
-  DB_USER: root
-  DB_PASSWORD: toor
-
 on:
   push:
     branches:
@@ -17,6 +12,15 @@ jobs:
   test-80:
     name: PHP 8.0
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: toor
+          MYSQL_ROOT_USERNAME: root
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout
@@ -26,13 +30,6 @@ jobs:
         uses: ./.github/workflows/setup
         with:
           php-version: '8.0'
-
-      - name: Start MySQL
-        run: |
-          sudo systemctl start mysql.service
-          while ! mysqladmin ping -h"127.0.0.1" -P"$PORT" --silent; do
-            sleep 1
-          done
 
       - name: Setup WP Tests
         run: composer run setup-tests
@@ -44,6 +41,15 @@ jobs:
   test-82:
     name: PHP 8.2
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: toor
+          MYSQL_ROOT_USERNAME: root
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout
@@ -53,13 +59,6 @@ jobs:
         uses: ./.github/workflows/setup
         with:
           php-version: '8.2'
-
-      - name: Start MySQL
-        run: |
-          sudo systemctl start mysql.service
-          while ! mysqladmin ping -h"127.0.0.1" -P"$PORT" --silent; do
-            sleep 1
-          done
 
       - name: Setup WP Tests
         run: composer run setup-tests
