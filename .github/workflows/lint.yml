@@ -10,7 +10,7 @@ on:
 
 jobs:
   phpunit_single_site:
-    name: Code style linting
+    name: phpcs
     runs-on: ubuntu-latest
 
     steps:

@@ -28,7 +28,11 @@ jobs:
           php-version: '8.0'
 
       - name: Start MySQL
-        run: sudo systemctl start mysql.service
+        run: |
+          sudo systemctl start mysql.service
+          while ! mysqladmin ping -h"127.0.0.1" -P"$PORT" --silent; do
+            sleep 1
+          done
 
       - name: Setup WP Tests
         run: composer run setup-tests
@@ -51,7 +55,11 @@ jobs:
           php-version: '8.2'
 
       - name: Start MySQL
-        run: sudo systemctl start mysql.service
+        run: |
+          sudo systemctl start mysql.service
+          while ! mysqladmin ping -h"127.0.0.1" -P"$PORT" --silent; do
+            sleep 1
+          done
 
       - name: Setup WP Tests
         run: composer run setup-tests
