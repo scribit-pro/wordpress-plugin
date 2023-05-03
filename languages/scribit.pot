@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-03T10:32:21+00:00\n"
+"POT-Creation-Date: 2023-05-03T11:39:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.0-alpha-25565fb\n"
 "X-Domain: scribit\n"
@@ -42,7 +42,7 @@ msgid "Scribit.Pro ID"
 msgstr ""
 
 #: assets/templates/options.php:37
-msgid "You can find your Scribit.Pro ID on <a href=\"https://scribit.pro/en-gb/integrations/\" target=\"_blank\">our website</a>"
+msgid "You can find your Scribit.Pro ID on <a href=\"https://scribit.pro/wordpress-plugin\" target=\"_blank\">our website</a>"
 msgstr ""
 
 #. translators: Sub title for the advanced plugin settings

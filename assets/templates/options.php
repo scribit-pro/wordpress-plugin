@@ -34,7 +34,7 @@ $action = 'options.php';
 					       value="<?php echo esc_attr( $id->value() ) ?>" class="regular-text ltr"
 					>
 					<p class="description" id="<?php echo esc_attr($id->key()); ?>-description">
-						<?php _e( 'You can find your Scribit.Pro ID on <a href="https://scribit.pro/en-gb/integrations/" target="_blank">our website</a>', 'scribit' ); ?>
+						<?php _e( 'You can find your Scribit.Pro ID on <a href="https://scribit.pro/wordpress-plugin" target="_blank">our website</a>', 'scribit' ); ?>
 					</p>
 				</td>
 			</tr>
