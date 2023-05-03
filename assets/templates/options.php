@@ -22,7 +22,7 @@ $action = 'options.php';
 			<tr>
 				<?php $id = new \Scribit\WordPress\Settings\ScribitID(); ?>
 				<th scope="row">
-					<label for="<?php echo $id->key(); ?>">
+					<label for="<?php echo esc_attr($id->key()); ?>">
 						<?php
 						/* translators: The form label for the scribit id */
 						_e( 'Scribit.Pro ID', 'scribit' );
@@ -30,10 +30,10 @@ $action = 'options.php';
 					</label>
 				</th>
 				<td>
-					<input name="<?php echo $id->key(); ?>" type="text" id="<?php echo $id->key(); ?>"
+					<input name="<?php echo esc_attr($id->key()); ?>" type="text" id="<?php echo esc_attr($id->key()); ?>"
 					       value="<?php echo esc_attr( $id->value() ) ?>" class="regular-text ltr"
 					>
-					<p class="description" id="<?php echo $id->key(); ?>-description">
+					<p class="description" id="<?php echo esc_attr($id->key()); ?>-description">
 						<?php _e( 'You can find your Scribit.Pro ID on <a href="https://scribit.pro/en-gb/integrations/" target="_blank">our website</a>', 'scribit' ); ?>
 					</p>
 				</td>
@@ -63,7 +63,7 @@ $action = 'options.php';
 				$selectedValue = $wrapper->value();
 				?>
 				<th scope="row">
-					<label for="<?php echo $wrapper->key() ?>">
+					<label for="<?php echo esc_attr($wrapper->key()) ?>">
 						<?php
 						/* translators: The form label for the widget placement */
 						_e( 'Widget bar location', 'scribit' );
@@ -71,11 +71,11 @@ $action = 'options.php';
 					</label>
 				</th>
 				<td>
-					<select id="<?php echo $wrapper->key() ?>" name="<?php echo $wrapper->key() ?>">
+					<select id="<?php echo esc_attr($wrapper->key()) ?>" name="<?php echo esc_attr($wrapper->key()) ?>">
 						<option value="" <?php echo $selectedValue == null ? "selected" : null ?>>
 							<?php _e( 'After the embedded element', 'scribit' ); ?>
 						</option>
-						<option value="div" <?php echo $selectedValue == 'div' ? "selected" : null ?>>
+						<option value="div" <?php echo $selectedValue === 'div' ? "selected" : null ?>>
 							<?php _e( 'After the parent of the embedded element', 'scribit' ); ?>
 						</option>
 					</select>
