@@ -23,7 +23,7 @@
   },
   "require-dev": {
     "wp-coding-standards/wpcs": "dev-develop",
-    "phpunit/phpunit": "^9.5",
+    "phpunit/phpunit": "^10.0",
     "phpcompatibility/phpcompatibility-wp": "*",
     "wp-phpunit/wp-phpunit": "^6.2",
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
