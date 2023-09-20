@@ -38,6 +38,35 @@ jobs:
       - name: PHPUnit
         run: composer run tests
 
+  test-81:
+    name: PHP 8.1
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.1
+        env:
+          MYSQL_ROOT_PASSWORD: toor
+          MYSQL_ROOT_USERNAME: root
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup environment
+        uses: ./.github/workflows/setup
+        with:
+          php-version: '8.1'
+
+      - name: Setup WP Tests
+        run: composer run setup-tests
+        shell: bash
+
+      - name: PHPUnit
+        run: composer run tests
+
   test-82:
     name: PHP 8.2
     runs-on: ubuntu-latest
