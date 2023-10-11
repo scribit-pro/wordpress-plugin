@@ -3,7 +3,7 @@
  * Plugin Name:       Scribit.Pro
  * Plugin URI:        https://github.com/scribit-pro/wordpress-plugin
  * Description:       Online video from your WordPress site accessible to all.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 5.9
  * Requires PHP:      8.0
  * Author:            Scribit.Pro
