@@ -18,7 +18,7 @@ The plugin runs with the following versions:
 
 ## Hints for developers working on the plugin
 
-- We require tools like `composer` and `wp cli` for developing this plugin. Make sure they are installed an available in your $PATH.
+- We require tools like `composer`, `git`, `svn`, `mysql`, `wp cli` and the `wp-cli dist archive command` for developing this plugin. Make sure they are installed an available in your $PATH.
 - Autoloading classes and files is done via composer. Make sure to run `composer install` when doing an initial setup.
 - Lint your files with `composer run lint`
 - PHPUnit tests require a dummy WordPress installation. Use `composer run setup-tests` to setup and `composer run tests` to run the tests
