@@ -25,7 +25,7 @@
     "wp-coding-standards/wpcs": "dev-develop",
     "phpunit/phpunit": "^9.5",
     "phpcompatibility/phpcompatibility-wp": "*",
-    "wp-phpunit/wp-phpunit": "^6.2",
+    "wp-phpunit/wp-phpunit": "^7.0",
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
     "yoast/phpunit-polyfills": "^3.0"
   },
