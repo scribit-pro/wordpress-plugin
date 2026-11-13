@@ -23,7 +23,8 @@ class ScribitID implements Setting {
 	public function validation_callback( mixed $value ): mixed {
 		$value = $this->sanitize( $value );
 		if ( ! wp_is_uuid( $value, 4 ) ) {
-			add_settings_error( $this->key(), 'invalidUUID', 'Given ID is not a valid Scribit ID' );
+			/* translators: error shown when the entered Scribit ID is invalid */
+			add_settings_error( $this->key(), 'invalidUUID', __( 'Given ID is not a valid Scribit ID', 'scribit' ) );
 
 			return $this->value();
 		}
