@@ -81,6 +81,26 @@ $action = 'options.php';
 					</select>
 				</td>
 			</tr>
+			<tr>
+				<?php $title_prefix = new \Scribit\WordPress\Settings\IframeTitlePrefix(); ?>
+				<th scope="row">
+					<?php
+					/* translators: The form label for the iframe title prefix setting */
+					_e( 'Add platform prefix to iframe title elements', 'scribit' );
+					?>
+				</th>
+				<td>
+					<label for="<?php echo esc_attr($title_prefix->key()) ?>">
+						<input name="<?php echo esc_attr($title_prefix->key()) ?>" type="checkbox" id="<?php echo esc_attr($title_prefix->key()) ?>"
+						       value="1" <?php checked( $title_prefix->value() ); ?>
+						>
+						<?php _e( 'Prefix the title of embedded videos with the provider name, e.g. "YouTube video: My video"', 'scribit' ); ?>
+					</label>
+					<p class="description">
+						<?php _e( 'Only applies to newly embedded videos or after the embed cache is refreshed.', 'scribit' ); ?>
+					</p>
+				</td>
+			</tr>
 			</tbody>
 		</table>
 		<p class='submit'>
