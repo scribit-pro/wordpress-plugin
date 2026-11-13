@@ -30,3 +30,6 @@ node_modules
 *.zip
 languages
 .phpcs.xml.dist
+.github
+renovate.json
+.composer-cache

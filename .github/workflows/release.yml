@@ -1,30 +1,55 @@
-name: Publishing plugin
+name: Release
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release, e.g. 1.2.3 (no v prefix)"
+        required: true
 
 permissions:
   contents: write
 
 jobs:
-  zip:
-    name: Create archive
+  release:
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ inputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: main
 
       - name: Setup environment
         uses: ./.github/workflows/setup
         with:
           php-version: '8.2'
 
-      - name: Create archive
-        shell: bash
-        run: composer run build
+      - name: Bump version
+        run: |
+          [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::Version must look like 1.2.3 (no v prefix)"; exit 1; }
+          sed -i -E "s/^( \* Version: +).*/\1$VERSION/; s/^(const SCRIBIT_PLUGIN_VERSION = ).*;/\1'$VERSION';/" plugin.php
+          sed -i -E "s/^(Stable tag: +).*/\1$VERSION/" readme.txt
+          grep -q "Version: *$VERSION$" plugin.php && grep -q "SCRIBIT_PLUGIN_VERSION = '$VERSION'" plugin.php && grep -q "Stable tag: *$VERSION$" readme.txt \
+            || { echo "::error::Could not bump the version in plugin.php or readme.txt, did their format change?"; exit 1; }
+          composer run generate-pot
 
-      - name: Upload release asset
-        run: gh release upload "$TAG" scribit-pro.zip
+      # Built before pushing anything, so a failing build doesn't leave a tag without a release behind.
+      - name: Build zip
+        run: |
+          composer install --no-dev --optimize-autoloader
+          rsync -a --exclude-from=.distignore ./ "$RUNNER_TEMP/scribit-pro/"
+          (cd "$RUNNER_TEMP" && zip -qr "$GITHUB_WORKSPACE/scribit-pro.zip" scribit-pro)
+
+      - name: Commit and tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore: release $VERSION"
+          git tag "$VERSION"
+          git push --atomic origin HEAD:main "$VERSION" # fails without changing anything when the tag already exists
+
+      - name: Publish release
+        run: gh release create "$VERSION" scribit-pro.zip --title "$VERSION" --generate-notes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.event.release.tag_name }}

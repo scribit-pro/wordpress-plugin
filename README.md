@@ -18,9 +18,21 @@ The plugin runs with the following versions:
 
 ## Hints for developers working on the plugin
 
-- We require tools like `composer`, `git`, `mysql`, `wp cli` and the `wp-cli dist archive command` for developing this plugin. Make sure they are installed an available in your $PATH.
+- We require tools like `composer`, `git`, `mysql` and `wp cli` for developing this plugin. Make sure they are installed an available in your $PATH.
 - Autoloading classes and files is done via composer. Make sure to run `composer install` when doing an initial setup.
 - Lint your files with `composer run lint`
 - PHPUnit tests require a dummy WordPress installation. Use `composer run setup-tests` to setup and `composer run tests` to run the tests
 - Once you've updated any translations, regenerate the .pot file with `composer run generate-pot`
-- Create an installable artifact with `composer run build`.
+
+## Releasing
+
+Releases are fully done by GitHub Actions, no local tooling needed. Go to Actions > "Release" > "Run workflow" and enter
+the new version (e.g. `1.2.3`, no `v` prefix), or run:
+
+```sh
+gh workflow run release.yml -f version=1.2.3
+```
+
+The workflow bumps the version in `plugin.php` and `readme.txt`, regenerates the .pot file, commits and tags on `main`,
+builds `scribit-pro.zip` (excluding everything in `.distignore`) and publishes a GitHub release with the zip attached.
+Edit the release title and notes on GitHub afterwards if you like.
