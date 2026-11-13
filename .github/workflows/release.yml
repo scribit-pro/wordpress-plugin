@@ -24,6 +24,7 @@ jobs:
         run: composer run build
 
       - name: Upload release asset
-        run: gh release upload "${{ github.event.release.tag_name }}" scribit-pro.zip
+        run: gh release upload "$TAG" scribit-pro.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.event.release.tag_name }}

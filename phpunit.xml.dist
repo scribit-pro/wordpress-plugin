@@ -18,7 +18,6 @@
     </coverage>
     <php>
         <const name="WP_TESTS_MULTISITE" value="1"/>
-        <env name="WP_PHPUNIT__TESTS_CONFIG" value="/tmp/wordpress-tests-lib/wp-tests-config.php"/>
         <ini name="error_reporting" value="24575"/>
     </php>
     <testsuites>
