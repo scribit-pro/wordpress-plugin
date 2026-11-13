@@ -5,7 +5,7 @@
  * Description:       Online video from your WordPress site accessible to all.
  * Version:           1.0.5
  * Requires at least: 5.9
- * Requires PHP:      8.0
+ * Requires PHP:      8.2
  * Author:            Scribit.Pro
  * Author URI:        https://scribit.pro
  * License:           GPL v3 or later

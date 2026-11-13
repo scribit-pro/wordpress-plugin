@@ -14,7 +14,7 @@ you'll be able to add Audio Descriptions and Text Alternatives to your YouTube a
 The plugin runs with the following versions:
 
 * [WordPress](https://wordpress.org) 5.9+
-* [PHP](https://php.net/) 8.0+
+* [PHP](https://php.net/) 8.2+
 
 ## Hints for developers working on the plugin
 

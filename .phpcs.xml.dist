@@ -23,7 +23,7 @@
 
 	<rule ref="PHPCompatibilityWP"/>
 	<config name="minimum_supported_wp_version" value="5.9"/>
-	<config name="testVersion" value="8.0-"/>
+	<config name="testVersion" value="8.2-"/>
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
