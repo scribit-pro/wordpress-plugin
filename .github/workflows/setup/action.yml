@@ -1,6 +1,11 @@
 name: "Setup build environment"
 description: "Installs PHP, composer and composer dependencies"
 
+inputs:
+  php-version:
+    description: "PHP version to install"
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -16,7 +21,7 @@ runs:
       run: composer config -g cache-dir "${{ github.workspace }}/.composer-cache"
 
     - name: Prepare composer cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: ${{ github.workspace }}/.composer-cache
         key: composer-${{ hashFiles('**/composer.lock') }}

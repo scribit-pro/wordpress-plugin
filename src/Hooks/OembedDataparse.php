@@ -52,5 +52,3 @@ class OembedDataparse {
 		return $adapter->replace_src( $src . '?enablejsapi=1&playsinline=1&disablekb=1' );
 	}
 }
-
-

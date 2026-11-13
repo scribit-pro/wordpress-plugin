@@ -51,5 +51,3 @@ class WidgetWrapper implements Setting {
 		return sanitize_text_field( $input );
 	}
 }
-
-

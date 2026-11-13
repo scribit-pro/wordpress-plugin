@@ -28,7 +28,4 @@ interface Setting {
 	 * @param mixed $value
 	 */
 	public function validation_callback( mixed $value ): mixed;
-
 }
-
-
