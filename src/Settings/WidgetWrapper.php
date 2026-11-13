@@ -35,7 +35,8 @@ class WidgetWrapper implements Setting {
 	public function validation_callback( mixed $value ): mixed {
 		$value = $this->sanitize( $value );
 		if ( ! in_array( $value, $this->options(), true ) ) {
-			add_settings_error( $this->key(), 'invalidOption', 'Selected placement option is not valid' );
+			/* translators: error shown when the selected widget bar location is invalid */
+			add_settings_error( $this->key(), 'invalidOption', __( 'Selected placement option is not valid', 'scribit' ) );
 
 			return $this->value();
 		}

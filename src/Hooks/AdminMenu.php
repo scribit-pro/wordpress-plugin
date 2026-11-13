@@ -17,7 +17,8 @@ class AdminMenu {
 	public static function register_options_page(): void {
 		add_submenu_page(
 			'options-general.php',
-			'Scribit.Pro options',
+			/* translators: Page title of the plugin settings */
+			__( 'Scribit.Pro options', 'scribit' ),
 			'Scribit.Pro',
 			'manage_options', // see https://wordpress.org/documentation/article/roles-and-capabilities/#manage_options .
 			'scribit-pro',
