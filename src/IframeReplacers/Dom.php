@@ -50,5 +50,3 @@ class Dom implements Replacer {
 		return $this->parsed->saveHTML();
 	}
 }
-
-

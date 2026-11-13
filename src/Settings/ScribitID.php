@@ -39,5 +39,3 @@ class ScribitID implements Setting {
 		return sanitize_text_field( $input );
 	}
 }
-
-

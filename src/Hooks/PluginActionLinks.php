@@ -21,5 +21,3 @@ class PluginActionLinks {
 		return $plugin_actions;
 	}
 }
-
-

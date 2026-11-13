@@ -5,14 +5,17 @@
  * @package scribit
  */
 
-$_tests_dir = getenv( 'WP_TESTS_DIR' );
+require dirname( __DIR__ ) . '/vendor/autoload.php';
 
-if ( ! $_tests_dir ) {
-    $_tests_dir = rtrim( '/tmp', '/\\' ) . '/wordpress-tests-lib';
+$_tests_dir = getenv( 'WP_PHPUNIT__DIR' );
+
+// Same location install-wp-tests.sh writes the config to.
+if ( ! getenv( 'WP_PHPUNIT__TESTS_CONFIG' ) ) {
+    putenv( 'WP_PHPUNIT__TESTS_CONFIG=' . ( getenv( 'WP_TESTS_DIR' ) ?: '/tmp/wordpress-tests-lib' ) . '/wp-tests-config.php' );
 }
 
-if ( ! file_exists( $_tests_dir . '/includes/functions.php' ) ) {
-    echo "Could not find $_tests_dir/includes/functions.php, did you run composer run setup-tests ?";
+if ( ! file_exists( getenv( 'WP_PHPUNIT__TESTS_CONFIG' ) ) ) {
+    echo 'Could not find ' . getenv( 'WP_PHPUNIT__TESTS_CONFIG' ) . ', did you run composer run setup-tests ?';
     exit( 1 );
 }
 

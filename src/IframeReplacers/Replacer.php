@@ -13,5 +13,3 @@ interface Replacer {
 
 	public function replace_src( string $src ): string;
 }
-
-

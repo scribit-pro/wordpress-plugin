@@ -14,11 +14,11 @@ you'll be able to add Audio Descriptions and Text Alternatives to your YouTube a
 The plugin runs with the following versions:
 
 * [WordPress](https://wordpress.org) 5.9+
-* [PHP](https://php.net/) 8.0+
+* [PHP](https://php.net/) 8.2+
 
 ## Hints for developers working on the plugin
 
-- We require tools like `composer`, `git`, `svn`, `mysql`, `wp cli` and the `wp-cli dist archive command` for developing this plugin. Make sure they are installed an available in your $PATH.
+- We require tools like `composer`, `git`, `mysql`, `wp cli` and the `wp-cli dist archive command` for developing this plugin. Make sure they are installed an available in your $PATH.
 - Autoloading classes and files is done via composer. Make sure to run `composer install` when doing an initial setup.
 - Lint your files with `composer run lint`
 - PHPUnit tests require a dummy WordPress installation. Use `composer run setup-tests` to setup and `composer run tests` to run the tests

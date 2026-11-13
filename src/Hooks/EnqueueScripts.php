@@ -17,7 +17,7 @@ class EnqueueScripts {
 
 
 	public const WIDGET_SCRIPT_HANDLE = 'scribit-widget';
-	private const WIDGET_CODE         = <<<EOD
+	private const WIDGET_CODE         = <<<'EOD'
     (function(s, w, i, d, g, e, t) {
         s['initScribitWidget'] = function(){s['scribitWidget']=new s.scribit.widget(g, SC_OPTIONS)};
         e = w.createElement(i); e.type='text/javascript'; e.src=d; e.defer=true;
@@ -47,5 +47,3 @@ EOD;
 		wp_enqueue_script( self::WIDGET_SCRIPT_HANDLE );
 	}
 }
-
-

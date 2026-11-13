@@ -1,6 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "The WordPress core test suite (wp-phpunit) only supports PHPUnit 9",
+      "matchPackageNames": ["phpunit/phpunit"],
+      "allowedVersions": "<10"
+    }
   ]
 }

@@ -38,5 +38,3 @@ class Regex implements Replacer {
 		return str_replace( $this->get_src(), $src, $this->html );
 	}
 }
-
-
