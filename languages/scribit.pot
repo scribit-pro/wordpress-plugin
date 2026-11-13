@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-13T18:05:52+00:00\n"
+"POT-Creation-Date: 2026-11-13T20:08:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: scribit\n"
@@ -71,25 +71,6 @@ msgstr ""
 
 #: assets/templates/options.php:79
 msgid "After the parent of the embedded element"
-msgstr ""
-
-#. translators: The form label for the iframe title prefix setting
-#: assets/templates/options.php:89
-msgid "Add platform prefix to iframe title elements"
-msgstr ""
-
-#: assets/templates/options.php:97
-msgid "Prefix the title of embedded videos with the provider name, e.g. \"YouTube video: My video\""
-msgstr ""
-
-#: assets/templates/options.php:100
-msgid "Only applies to newly embedded videos or after the embed cache is refreshed."
-msgstr ""
-
-#. translators: 1: video platform name, e.g. YouTube. 2: original title of the embedded video
-#: src/Hooks/OembedIframeTitleAttribute.php:38
-#, php-format
-msgid "%1$s video: %2$s"
 msgstr ""
 
 #. translators: link to the plugin settings page when you are browsing the installed WordPress plugins

@@ -4,7 +4,6 @@ declare( strict_types=1 );
 
 namespace Scribit\WordPress\Hooks;
 
-use Scribit\WordPress\Settings\IframeTitlePrefix;
 use Scribit\WordPress\Settings\ScribitID;
 use Scribit\WordPress\Settings\WidgetWrapper;
 use Scribit\WordPress\Settings\Setting;
@@ -24,7 +23,7 @@ class AdminInit {
 		/**
 	* @var array<Setting> $fields all settings
 */
-		$fields = array( new ScribitID(), new WidgetWrapper(), new IframeTitlePrefix() );
+		$fields = array( new ScribitID(), new WidgetWrapper() );
 
 		foreach ( $fields as $field ) {
 			register_setting(

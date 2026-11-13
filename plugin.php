@@ -29,5 +29,4 @@ add_action( 'admin_init', static fn() => Scribit\WordPress\Hooks\AdminInit::regi
 add_action( 'admin_menu', static fn() => Scribit\WordPress\Hooks\AdminMenu::register_options_page() );
 add_action( 'wp_enqueue_scripts', static fn() => Scribit\WordPress\Hooks\EnqueueScripts::load_widget_js() );
 add_filter( 'oembed_dataparse', static fn( string $html, $data ) => Scribit\WordPress\Hooks\OembedDataparse::enable_jsapi_on_youtube( $html, $data ), 15, 2 );
-add_filter( 'oembed_iframe_title_attribute', static fn( string $title, $html, $data ) => Scribit\WordPress\Hooks\OembedIframeTitleAttribute::prefix_with_platform( $title, $data ), 10, 3 );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), static fn( array $actions ) => Scribit\WordPress\Hooks\PluginActionLinks::add_settings_link( $actions ), 15, 1 );
