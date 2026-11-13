@@ -26,13 +26,24 @@ The plugin runs with the following versions:
 
 ## Releasing
 
-Releases are fully done by GitHub Actions, no local tooling needed. Go to Actions > "Release" > "Run workflow" and enter
-the new version (e.g. `1.2.3`, no `v` prefix), or run:
+1. Run the "Release" GitHub Action with the new version (no `v` prefix). It creates a GitHub release with `scribit-pro.zip`:
 
-```sh
-gh workflow run release.yml -f version=1.2.3
-```
+   ```sh
+   gh workflow run release.yml -f version=1.2.3
+   ```
 
-The workflow bumps the version in `plugin.php` and `readme.txt`, regenerates the .pot file, commits and tags on `main`,
-builds `scribit-pro.zip` (excluding everything in `.distignore`) and publishes a GitHub release with the zip attached.
-Edit the release title and notes on GitHub afterwards if you like.
+2. Test the release before publishing it. Download `scribit-pro.zip` from the GitHub release, install it on a test site
+   (Plugins > Add New > Upload Plugin, or `wp plugin install scribit-pro.zip --force --activate`) and check that it
+   works. Found a bug? Fix it and cut a new release, nothing has reached the plugin directory yet.
+
+3. Push the zip to the WordPress.org plugin directory. Log in with your wordpress.org username and the SVN password
+   from Profile > Account & Security:
+
+   ```sh
+   gh release download 1.2.3 -p scribit-pro.zip -D ~/wp-release && unzip -q ~/wp-release/scribit-pro.zip -d ~/wp-release
+   svn co https://plugins.svn.wordpress.org/scribit-pro ~/svn/scribit-pro && cd ~/svn/scribit-pro
+   rsync -a --delete ~/wp-release/scribit-pro/ trunk/
+   svn add --force trunk && svn status | awk '/^!/{print $2}' | xargs -r svn rm
+   svn cp trunk tags/1.2.3
+   svn ci -m "Release 1.2.3" --username <wp.org-username>
+   ```
